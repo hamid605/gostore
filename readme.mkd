@@ -1,0 +1,43 @@
+# GoStore
+
+A minimal Redis-like key-value store implementation in Go.
+
+## Overview
+
+GoStore is a simple in-memory key-value store that implements basic Redis commands over TCP. It includes persistence through append-only file (AOF) logging.
+
+## Features
+
+- Basic key-value operations (SET, GET)
+- Hash operations (HSET, HGET)
+- TCP server on port 6379
+- RESP protocol implementation
+- AOF persistence
+- Thread-safe operations
+
+## Commands
+
+- `PING` - Returns PONG
+- `SET key value` - Set a key-value pair
+- `GET key` - Retrieve value by key
+- `HSET hash key value` - Set field in hash
+- `HGET hash key` - Get field from hash
+
+## Usage
+
+```bash
+go run .
+```
+
+The server will start listening on port 6379. Connect using any Redis client or telnet.
+
+## Architecture
+
+- `main.go` - Server entry point and connection handling
+- `handler.go` - Command handlers and data structures
+- `resp.go` - RESP protocol parser and serializer
+- `aof.go` - Append-only file persistence
+
+## Dependencies
+
+Standard Go library only - no external dependencies required.
